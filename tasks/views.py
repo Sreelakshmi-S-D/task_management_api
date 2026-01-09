@@ -14,7 +14,7 @@ class TasksViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         response = {}
-        records = self.queryset()
+        records = self.get_queryset()
         ser = self.get_serializer(records,many=True,context={'request':request})
         response['result'],response['message'],response['records'],status_code = 'success','Task details fetched successfully',ser.data,status.HTTP_200_OK
         return Response(response,status=status_code)
