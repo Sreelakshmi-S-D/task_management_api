@@ -15,8 +15,6 @@ venv\Scripts\activate
 macOS / Linux:
 source venv/bin/activate
 
-cd task_app
-
 ## Migrations
 python manage.py makemigrations
 python manage.py migrate
