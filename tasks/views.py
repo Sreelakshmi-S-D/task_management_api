@@ -15,7 +15,6 @@ class StatusViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         response,status_code = {},status.HTTP_200_OK
         try:
-            import pdb; pdb.set_trace()
             serializer = self.get_serializer(data=request.data, context={'request': request})
             if serializer.is_valid():
                 serializer.save() 
