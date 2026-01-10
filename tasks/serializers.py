@@ -8,7 +8,14 @@ def field_length(fieldname):
     return field.max_length
 
 class StatusSerializer(serializers.ModelSerializer):
-
+    status = serializers.ChoiceField(
+        choices=STATUS_CHOICES,
+        default=STATUS_PENDING,
+        error_messages={
+            'required': 'Please select a status.',
+            'invalid_choice': 'Selected status is not valid.'
+        }
+    )
     class Meta:
         model = Status
         fields = ('id', 'status')
